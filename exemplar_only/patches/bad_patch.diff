@@ -1,0 +1,17 @@
+diff --git b/net/tipc/crypto.c a/net/tipc/crypto.c
+index 43fc66bd1..2521298f2 100644
+--- b/net/tipc/crypto.c
++++ a/net/tipc/crypto.c
+@@ -2307,9 +2307,9 @@ static bool tipc_crypto_key_rcv(struct tipc_crypto *rx, struct tipc_msg *hdr)
+ 
+ 	/* Copy key from msg data */
+ 	skey->keylen = keylen;
+-	memcpy(skey->alg_name, data, TIPC_AEAD_ALG_NAME);
+-	memcpy(skey->key, data + TIPC_AEAD_ALG_NAME + sizeof(__be32),
+-	       skey->keylen);
++	//memcpy(skey->alg_name, data, TIPC_AEAD_ALG_NAME);
++	//memcpy(skey->key, data + TIPC_AEAD_ALG_NAME + sizeof(__be32),
++	//       skey->keylen);
+ 
+ 	rx->key_gen = key_gen;
+ 	rx->skey_mode = msg_key_mode(hdr);

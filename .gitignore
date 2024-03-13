@@ -1,0 +1,6 @@
+out/
+work/
+src/
+!out/README
+!work/README
+!src/README

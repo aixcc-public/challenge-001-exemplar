@@ -1,0 +1,44 @@
+cp_name: "linux kernel"
+
+# The language property denotes the *primary* language used; vulnerabilities will
+# exist solely within code of the CP's primary langauge.
+
+language: "c"
+
+# The cp_address property points the reader to the full challenge project repository
+# this exists so that the project.yaml file may be passed around standalone.
+
+cp_address: "https://github.com/aixcc-public/challenge-001-exemplar.git"
+
+# The cp_source_address property denotes the internal source repository addresses to use
+
+cp_source_address: 
+    linux-kernel: "https://github.com/aixcc-public/challenge-001-exemplar-source.git"
+
+# The docker_img_address property denotes the address to pull the pre-built docker
+# image that the CP's Dockerfile bases from.
+
+docker_img_address: "n/a"
+
+# The sanitizers property denotes which sanitizers are available for scoring for
+# this particular challenge project; when specifying a santizer id to the scoring
+# server, use the *key* values here, e.g. use "id_1", not "sanitizer-1: subtype-1".
+#
+# Note, these key-value mappings are unique for each challenge project, sanitizer
+# id "id_1" will likely map to different values for each challenge project.
+
+sanitizers:
+    id_1: "KASAN: slab-out-of-bounds"
+
+# The harnesses property denotes which aixcc harnesses are available to use for
+# triggering sanitizers for this challenge project; when specifying a harness id
+# to the scoring server, use the *key* value here, e.g. "test_harness_id_1", not
+# the values under 'source' or 'binary'.
+#
+# The source and binary properties point the reader to the appropriate directory
+# paths for the harness source code and executable binary (if exists).
+
+harnesses:
+    linux_test_harness:
+        source: "src/test_harnesses/linux_test_harness.c"
+        binary: "out/linux_test_harness"
